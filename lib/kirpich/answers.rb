@@ -182,6 +182,16 @@ module Kirpich
         build_response(Kirpich::Dict::NO_CONTENT.sample)
       end
 
+      def ipify(_, _)
+        result = Kirpich::Providers::Ipify.get_ip
+
+        if result.empty?
+          appeal_text(request, state, Kirpich::Dict::HZ.sample, 2)
+        else
+          build_response(result + ", #{Kirpich::Dict::ADDRESS.sample}")
+        end
+      end
+
       def build_response(body, state = {})
         Kirpich::Response.new(body: body, state: state)
       end

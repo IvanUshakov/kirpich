@@ -109,6 +109,8 @@ module Kirpich
         elsif text.clean =~ /(найди|поищи|загугли|погугли|пошурши|че там)\s(.*?)$/i
           md = text.clean.scan(/.*?(найди|поищи|загугли|погугли|пошурши|че там)\s(.*?)$/i)
           answer = Kirpich::Answer.new(:google_search, md[0][1]) if md && md[0] && md[0][1]
+        elsif text.clean =~ /(ты где|куда идти)/i
+          answer = Kirpich::Answer.new(:ipify)
         elsif text.clean =~ /.*\?$/i
           answer = Kirpich::Answer.new(:choose_text, Kirpich::Dict::YES_NO)
         end

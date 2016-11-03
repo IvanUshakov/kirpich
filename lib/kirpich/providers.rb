@@ -10,6 +10,7 @@ module Kirpich
     autoload 'Fga', 'kirpich/providers/fga'
     autoload 'SlackUser', 'kirpich/providers/slack_user'
     autoload 'Ololo', 'kirpich/providers/ololo'
+    autoload 'Ipify', 'kirpich/providers/ipify'
 
     autoload 'TextUtils', 'kirpich/providers/text_utils'
   end
